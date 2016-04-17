@@ -1,6 +1,6 @@
 ---
 title       : Bias-Variance App 
-subtitle    : A general pattern of MSE testing
+subtitle    : A general pattern of Testing MSE
 author      : José Antonio Ariño Rico
 job         : 
 framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
