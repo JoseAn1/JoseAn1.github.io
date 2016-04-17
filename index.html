@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bias-Variance App</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Bias-Variance App">
+  <meta name="author" content="José Antonio Ariño Rico">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Bias-Variance App</h1>
+    <h2>A general pattern of MSE testing</h2>
+    <p>José Antonio Ariño Rico<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Introduction</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><p>The App shows how the next fundamental property in Statistical Learning works: There is a general pattern in the relation of MSE&#39;s (Mean Squared Errors) versus the model flexibility: U-shape in the Testing MSE and monotone decrease in the Training set one. This pattern is held regardless the data set or the statistical learning method we choose.</p></li>
+<li><p>In order to obtain the test MSE and its components, we will assume that the population features are known and, therefore, we will be able to build the sample distributions by simulation.</p></li>
+<li><p>Given the above feature, it will be possible to change some of the parameters that define the population or the model (App inputs) and showing the effects of the changes in the relation ot the MSE versus the flexibility of the model. We are going to see that this MSE pattern is held for any set of inputs.   </p></li>
+<li><p>References:  </p>
+
+<ul>
+<li><a href="http://www-bcf.usc.edu/%7Egareth/ISL/">Cap 2: &amp; 2.2.2.&quot;The Bias-Variance Trade-Off&quot; from Gareth James et alter.</a><br></li>
+<li><a href="https://theclevermachine.wordpress.com/2013/04/21/model-selection-underfitting-overfitting-and-the-bias-variance-tradeoff/">the clever machine</a></li>
+</ul></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Input values and assumptions</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>x, the quantitative predictor has a uniform distribution where its limits can be chosen.</li>
+<li>y, the quantitative outcome, is defined with a known true function f(x)= cos (x)) and a random error (epsilon).<br>
+y = f(x)+ epsilon, where epsilon -&gt; N( 0, sigma ). -sigma can be also chosen-. </li>
+<li>the sample size can be chosen.</li>
+<li>The simulations size is 50 and the percentage of training set size is 60 %.</li>
+<li>Spline method is the Statistical method. To change the flexibility level, the knots number is used. From knots=1, that adjust a straight line -the lowest level of flexibility- to 12 -the highest one-, that obtains a extremely adjusted function to the true function of the population. </li>
+<li>The App obtains the optimum level for the knots. This is the one where the lowest testing MSE is achieved. But, we can also change it to see the results in terms of bias/variance trade off. </li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Output plots</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>There are three plots to see the results:</p>
+
+<ol>
+<li><p>Data set with the &quot;true function&quot; and the &quot;estimate y&quot;.<br>
+We can see, for each level of flexibility, the adjustment of the 50 simulations and its mean(estimate y). When the knots increases, the adjustment to the true function is better, but the variance of the simulations is higher. The clear red lines are more deviated around its mean.</p></li>
+<li><p>MSE in training and testing set versus the model flexibility.<br>
+The general pattern of the MSE shape is showed here: In the case of testing set the MSE has a U shape with a minimum level. But, in the case of training set, the MSE shows a monotone decrease evolution. This is the property to check by the App. There is an example in the next slide.</p></li>
+<li><p>Testing MSE components: MSE ~= sigma<sup>2</sup> + bias<sup>2</sup> + variance.<br>
+The last plot explains the performance of the testing MSE. The U-shape is generated by the tradeoff between the bias and the variance of the estimate y when the flexibility increases. </p></li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Example: The plot #2 for a given data set</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>We can observe U-shape for the testing MSE and decreasing line for the training MSE.
+<img src="assets/fig/setoptions-1.png" alt="plot of chunk setoptions"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Introduction'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Input values and assumptions'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Output plots'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Example: The plot #2 for a given data set'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
